@@ -1,0 +1,64 @@
+    <!DOCTYPE HTML>
+    <html lang="pl">
+    <head>
+        {% load static %}
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        
+        <title>TechRent | Strona Główna</title>
+        
+        <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css" />
+
+    </head>
+    
+    <body>
+        <div class="pasek">
+            {% if user.is_authenticated %}
+                <span class="nav-left" onclick="toggleDim(this)">Witaj, {{ user.imie_nazwisko }}!</span>
+                <span class="nav-right">
+                    {% if user.typ_uzytkownika == 'administrator' %}
+                        <a class="nav-link" href="{% url 'strona_glowna' %}">Strona główna</a>
+                        <a class="nav-link" href="{% url 'lista_sprzetu' %}">Sprzęt</a>
+                        <a class="nav-link" href="{% url 'lista_wypozyczen' %}">Wypożyczenia</a>
+                        <a class="nav-link" href="{% url 'lista_uzytkownikow' %}">Użytkownicy</a>
+                    {% else %}
+                        <a class="nav-link" href="{% url 'strona_glowna' %}">Strona główna</a>
+                        <a class="nav-link" href="{% url 'lista_sprzetu' %}">Sprzęt</a>
+                    {% endif %}
+                    <a class="nav-link" href="{% url 'profil' %}">Profil</a>
+                    <a class="nav-link" href="{% url 'logout' %}">Wyloguj</a>
+                </span>
+            {% else %}
+                <div class="nav-right">
+                    <a class="nav-link" href="{% url 'login' %}">Logowanie</a>
+                    <a class="nav-link" href="{% url 'rejestracja' %}">Rejestracja</a>
+                </div>
+            {% endif %}
+        </div>
+            <div class="content">
+            <div class="logo">
+                <img src="{% static 'img/logo.png' %}" alt="Logo TechRent">
+            </div>
+    <div class="meat">
+
+        {% block content %}
+        {% endblock %}
+                {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show fixed-alert" role="alert">
+                {{ message }}
+                <button type="button" class="btn" data-bs-dismiss="alert">Ok</button>
+            </div>
+
+            {% endfor %}
+        {% endif %}
+
+    </div>
+            </div>
+            <footer>
+                TechRent &copy 2025 Wszelkie prawa zastrzeżone.
+            </footer>
+    </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+
+    </html>

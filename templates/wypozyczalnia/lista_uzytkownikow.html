@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Lista Użytkowników</h2>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nazwa użytkownika</th>
+                <th>Imię i nazwisko</th>
+                <th>Email</th>
+                <th>Typ konta</th>
+                <th>Status konta</th>
+                <th>Data rejestracji</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for uzytkownik in uzytkownicy %}
+                <tr>
+                    <td>{{ uzytkownik.username }}</td>
+                    <td>{{ uzytkownik.imie_nazwisko }}</td>
+                    <td>{{ uzytkownik.email }}</td>
+                    <td>
+                        <span class="badge bg-{% if uzytkownik.typ_uzytkownika == 'administrator' %}primary{% else %}secondary{% endif %}">
+                            {{ uzytkownik.get_typ_uzytkownika_display }}
+                        </span>
+                    </td>
+                    <td>
+                        {% if uzytkownik.status_konta %}
+                            <span class="badge bg-success">Aktywne</span>
+                        {% else %}
+                            <span class="badge bg-danger">Nieaktywne</span>
+                        {% endif %}
+                    </td>
+                    <td>{{ uzytkownik.date_joined|date:"d.m.Y" }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="6" class="text-center">Brak użytkowników.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

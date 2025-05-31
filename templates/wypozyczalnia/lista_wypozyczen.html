@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="lista_wypozyczen">
+    <h2>Lista Wypożyczeń</h2>
+    <a href="{% url 'dodaj_wypozyczenie' %}" class="btn">Dodaj Wypożyczenie</a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Model Sprzętu</th>
+                <th>Klient</th>
+                <th>Data rozpoczęcia</th>
+                <th>Data zakończenia</th>
+                <th>Uwagi</th>
+                <th>Data utworzenia</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for wypozyczenie in wypozyczenia %}
+                <tr>
+                    <td>{{ wypozyczenie.sprzet.model }}</td>
+                    <td>{{ wypozyczenie.klient.imie_nazwisko }}</td>
+                    <td>{{ wypozyczenie.data_rozpoczecia }}</td>
+                    <td>{{ wypozyczenie.data_zakonczenia }}</td>
+                    <td>{{ wypozyczenie.uwagi|truncatewords:5 }}</td>
+                    <td>{{ wypozyczenie.data_utworzenia|date:"d.m.Y H:i" }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="6" class="text-center">Brak wypożyczeń.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

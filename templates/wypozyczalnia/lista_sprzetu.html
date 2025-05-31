@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="dodaj_sprzet">
+    <h2>Lista Sprzętu</h2>
+    {% if user.typ_uzytkownika == 'administrator' %}
+        <a href="{% url 'dodaj_sprzet' %}" class="btn">Dodaj Sprzęt</a>
+    {% endif %}
+</div>
+<div class="tabela">
+<div class="table-responsive">
+    <table class="tabela_sprzet">
+        <thead>
+            <tr>
+                <th>Model</th>
+                <th>Opis</th>
+                <th>Koszt dzienny</th>
+                <th>Status</th>
+                {% if user.typ_uzytkownika == 'administrator' %}
+                    <th>Akcje</th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in sprzet %}
+                <tr>
+                    <td>{{ item.model }}</td>
+                    <td>{{ item.opis|truncatewords:10 }}</td>
+                    <td>{{ item.koszt_dzienny }} PLN</td>
+                    <td>
+                        <span class="badge bg-{% if item.status_wypozyczenia == 'dostepny' %}success{% elif item.status_wypozyczenia == 'wypozyczony' %}warning{% else %}danger{% endif %}">
+                            {{ item.get_status_wypozyczenia_display }}
+                        </span>
+                        
+                    </td>
+                    {% if user.typ_uzytkownika == 'administrator' %}
+                        <td>
+                            <a href="{% url 'edytuj_sprzet' item.pk %}" class="btn-edycja">Edytuj</a>
+                        </td>
+                    {% endif %}
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="{% if user.typ_uzytkownika == 'administrator' %}5{% else %}4{% endif %}" class="text-center">
+                        Brak sprzętu w bazie danych.
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</div>
+{% endblock %}

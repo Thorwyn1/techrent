@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}Logowanie - {{ block.super }}{% endblock %}
+
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Logowanie</h3>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        <table class="tabela_logowanie">
+                            <tbody>
+                                <tr>
+                                    <th>
+                                        <label for="{{ form.username.id_for_label }}">Nazwa użytkownika</label>
+                                    </th>
+                                    <td>
+                                        {{ form.username }}
+                                        {% if form.username.errors %}
+                                            <div class="text-danger small">{{ form.username.errors }}</div>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <label for="{{ form.password.id_for_label }}">Hasło</label>
+                                    </th>
+                                    <td>
+                                        {{ form.password }}
+                                        {% if form.password.errors %}
+                                            <div class="text-danger small">{{ form.password.errors }}</div>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="przyciski-logowanie">
+                            <button type="submit" class="btn">Zaloguj się</button>
+                            <a href="{% url 'rejestracja' %}" class="btn">Nie masz konta? Zarejestruj się</a>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

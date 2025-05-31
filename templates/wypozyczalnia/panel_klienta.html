@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+			<h1>Witamy w Aplikacji TechRent</h1>
+            <h2>Panel Klienta</h2>
+				<div class="przycisk">
+					<a class="button" href="{% url 'lista_sprzetu' %}">Dostępny sprzęt</a>
+					<a class="button" href="{% url 'profil' %}">Konto</a>
+				</div>
+  <div class="Panel">
+    <h3 class="mt-4">Dostępny Sprzęt</h3>
+
+    {% if sprzet_dostepny %}
+        <div class="tabela">
+            <table class="table tabela_klienta">
+                <thead>
+                    <tr>
+                        <th>Model</th>
+                        <th>Opis</th>
+                        <th>Koszt dzienny</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in sprzet_dostepny %}
+                        <tr>
+                            <td>{{ item.model }}</td>
+                            <td>{{ item.opis }}</td>
+                            <td>{{ item.koszt_dzienny }} PLN</td>
+                            <td>
+                                <span class="badge bg-success">{{ item.get_status_wypozyczenia_display }}</span>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <p>Brak dostępnego sprzętu.</p>
+    {% endif %}
+</div>
+
+</div>
+{% endblock %}

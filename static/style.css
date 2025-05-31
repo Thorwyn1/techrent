@@ -1,0 +1,416 @@
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+body
+{
+	
+	background-image:url(img/prism.png);
+	color: #fff;
+	font-size: 20px;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	margin: 0;
+  	padding: 0;
+  	box-sizing: border-box;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	overflow-x: hidden;
+}
+body > .content {
+  flex: 1;
+}
+.pasek{
+	width: 100%;	
+	background-color: #0052cc;
+	color: #fff;
+	display: flex;
+	justify-content: space-between; 
+	align-items: center;
+	margin: 0px;
+	padding: 15px;
+}
+.nav-right, .nav-left{	
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 5px;
+  margin-right: 10px;
+}
+.pasek a{
+	color: #fff;
+}
+.nav-link{
+	text-decoration: none;
+	color: #fff;
+	padding-right: 5px;
+}
+.nav-link:active{
+	color: #999999;
+}
+.navbar-text{
+	display: flex;
+	align-items: center;
+}
+
+.content
+{
+	background-color: #262626;  
+	width: 1000px;
+	margin: 0 auto;
+	flex: 1;
+	padding: 40	px;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+}
+.container
+{
+	width: 100%;
+}
+header
+{
+	width: 100%;
+	padding: 0px;
+	background-color: #202020;
+}
+footer
+{
+	font-size: 20px;
+	width: 100%;
+	height: auto;
+	background-color: #1a1a1a;
+	text-align: center;
+	padding: 10px;
+}
+h1{
+	text-align: center;
+	font-size: 50x;
+	margin-top: 40px;
+	margin-bottom: 60px;
+}
+h2{
+	text-align: center;
+}
+.logo
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+.logo img{
+	max-width: 250px;
+ 	height: auto;
+}
+.przycisk{
+	align-items: center;
+	display: flex;
+	flex-direction: column;  
+	margin-bottom: 50px;
+}
+.button{
+	background-color: #0066ff;
+	font-size: 30px;
+	text-align: center;
+	border: 5px solid #161616;
+	border-radius: 5px;
+	color: #fff;
+	width: 350px;
+	display: block;
+	margin: 5px;
+	padding:  7px;
+	text-decoration: none;
+}
+.button:hover{
+	display: block;
+	background-color: #0052cc;
+	color: #bfbdbd;
+	cursor: pointer;
+}
+.button:active
+{
+	background-color: #0047b3;
+	color: #bfbdbd;
+}
+.nav
+{
+	background-color: #0066ff;
+	font-size: 30px;
+	width: 100%;
+	text-align: center;
+	border-top: 1px solid #0047b3;
+	border-bottom: 1px solid #0047b3;
+}
+.row h2{
+	text-align: center;
+}
+.meat{
+	padding-left: 50px;
+	padding-right: 50px;
+	margin-bottom: 60px;
+}
+.meat .btn{
+	background-color: #0950bc;
+	color: white;
+	border-color: #000000;
+    border-radius: 3px;
+	padding: 5px;
+    transition: background-color 0.2s ease-in-out;	
+	text-decoration: none;
+}
+.row2{
+	padding-left: 20px;
+}
+.tabela{
+    text-align: center;
+}
+.tabela_sprzet,.lista_wypozyczen {
+    margin-left: auto;
+    margin-right: auto;
+}
+.tabela_sprzet th, td,.lista_wypozyczen td, th{
+	padding: 5px;
+	padding-inline: 10px;
+}
+.tabela_sprzet th,.lista_wypozyczen th{
+	font-size: 30px;
+}
+.badge{
+	padding: 5px;
+	border-radius: 4px;
+}
+.tabela_sprzet .badge.bg-success{
+	background-color: rgb(10, 179, 10);
+}
+.tabela_sprzet .badge.bg-warning{
+	background-color: rgb(185, 106, 11);
+}
+.tabela_sprzet .badge.bg-danger{
+	background-color: rgb(203, 43, 11);
+}
+
+table.dane_osobowe {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    max-width: 600px;
+    background-color: #042f70;
+    border: 1px solid #161616;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    margin-bottom: 2rem;	
+    font-size: 1rem;
+}
+
+
+table.dane_osobowe th,
+table.dane_osobowe td {
+    padding: 12px 20px;
+    text-align: left;
+    vertical-align: middle;
+    border-bottom: 1px solid #e9ecef;
+}
+
+
+table.dane_osobowe th {
+    background-color: #1652ae;
+    font-weight: 600;
+    color: #ffffff;
+    width: 40%;
+}
+
+
+table.dane_osobowe tr:last-child td {
+    border-bottom: none;
+}
+
+
+table.dane_osobowe .badge {
+    padding: 0.35em 0.65em;
+    font-size: 0.85em;
+    font-weight: 500;
+    border-radius: 0.3rem;
+}
+
+table.dane_osobowe .bg-success {
+    background-color: rgb(10, 179, 10);
+    color: white;
+}
+
+table.dane_osobowe .bg-danger {
+    background-color: rgb(203, 43, 11);
+    color: white;
+}
+table.formularz_edytuj {
+    width: 100%;
+    max-width: 700px;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: #202020	;
+    border: 1px solid #000000;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+	padding-right: 10px;
+}
+
+
+table.formularz_edytuj th,
+table.formularz_edytuj td {
+    padding: 14px 20px;
+    vertical-align: middle;
+    text-align: left;
+    border-bottom: 1px solid #000000;
+    font-size: 1rem;
+}
+
+
+table.formularz_edytuj th {
+    width: 35%;
+    background-color: #f8f9fa;
+    color: #333;
+    font-weight: 600;
+}
+
+
+table.formularz_edytuj tr:last-child td {
+    border-bottom: none;
+}
+
+
+table.formularz_edytuj input,
+table.formularz_edytuj select,
+table.formularz_edytuj textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #042f70;
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: #fefefe;
+    transition: border-color 0.2s ease-in-out;
+}
+
+table.formularz_edytuj input:focus,
+table.formularz_edytuj select:focus,
+table.formularz_edytuj textarea:focus {
+    border-color: #86b7fe;
+    outline: none;
+    box-shadow: 0 0 0 0.15rem rgba(13, 110, 253, 0.25);
+}
+
+
+table.formularz_edytuj .text-danger {
+    margin-top: 4px;
+    font-size: 0.85rem;
+}
+
+
+.przycisk-form,.dodaj_sprzet,.lista_wypozyczen {
+    text-align: center;
+    margin-top: 24px;
+}
+
+
+.przycisk-form .btn,.przyciski-logowanie .btn,.dodaj_sprzet .btn,.lista_wypozyczen .btn {
+	background-color: #0950bc	;
+	color: white;
+	border-color: #000000;
+    padding: 10px 24px;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 6px;
+    transition: background-color 0.2s ease-in-out;
+	margin-bottom: 30px;
+	text-decoration: none;
+}
+
+
+.przycisk-form .btn:hover,.przyciski-logowanie .btn:hover,.lista_wypozyczen .btn:hover{
+    background-color: #0b5ed7;
+	text-decoration: none;
+	cursor: pointer;
+}
+.card-header h3{
+	text-align: center;
+}
+.tabela_logowanie{
+	margin: 0px auto;
+}
+.przyciski-logowanie {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    align-items: center;
+}
+.fixed-alert {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    border-radius: 0;
+    z-index: 1050; 
+    text-align: center;
+    padding: 1rem;	
+}
+
+
+.fixed-alert.alert-success {
+    background-color: #198754;
+    color: white;
+}
+
+
+.fixed-alert.alert-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+.fixed-alert.alert-warning {
+    background-color: #ffc107;
+    color: #212529;
+}
+.btn-edycja{
+	padding: 5%;
+	border-radius: 5px;
+	background-color: #0052cc;
+	color: white;
+	text-decoration: none;	
+}
+.dodaj_sprzet,.lista_wypozyczen{
+	margin: 30px;
+}
+.tabela_klienta {
+    width: 100%;
+    margin: 0 auto; 
+    table-layout: auto; 
+}
+
+.tabela_klienta th {
+    background-color: #0052cc	;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.tabela_klienta td,
+.tabela_klienta th {
+    padding: 12px;
+    vertical-align: middle;
+    text-align: left;
+}
+
+.table-responsive {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.Panel{
+	text-align: center;
+	
+}

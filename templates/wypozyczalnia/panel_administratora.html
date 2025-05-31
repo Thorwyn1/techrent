@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+        <h2>Panel Administratora</h2>
+		</div>
+			<h1>Witamy w Aplikacji TechRent</h1>
+				<div class="przycisk">
+					<a class="button" href="{% url 'lista_sprzetu' %}">Dostępny sprzęt</a>
+					<a class="button" href="{% url 'lista_wypozyczen' %}">Wypożyczenia</a>
+					<a class="button" href="{% url 'lista_uzytkownikow' %}">Użytkownicy</a>
+					<a class="button" href="{% url 'profil' %}">Konto</a>
+				</div>
+    </div>
+</div>
+{% endblock %}
