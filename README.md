@@ -1,1 +1,1 @@
-# techrent
+# Techrent Solutions - instrukcja uruchomienia.
